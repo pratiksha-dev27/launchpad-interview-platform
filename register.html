@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | LaunchPad Interview Prep</title>
+    <meta name="description" content="Create your LaunchPad account and start preparing for your dream job today.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="auth.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-globes">
+        <div class="globe globe-1"></div>
+        <div class="globe globe-2"></div>
+        <div class="globe globe-3"></div>
+    </div>
+
+    <!-- Brand Nav Strip -->
+    <div class="auth-nav">
+        <a href="index.html" class="logo">
+            <i class="fas fa-rocket"></i> LaunchPad
+        </a>
+    </div>
+
+    <div class="auth-wrapper">
+        <!-- Left Panel -->
+        <div class="auth-left">
+            <div class="auth-left-content">
+                <div class="auth-badge">✨ Join 10k+ Students</div>
+                <h1>Start your <span class="gradient-text">Success Journey</span> today</h1>
+                <p>Create a free account and get personalized interview preparation, progress tracking, and AI-powered feedback.</p>
+                <div class="auth-features">
+                    <div class="auth-feature-item">
+                        <span class="feature-icon"><i class="fas fa-infinity"></i></span>
+                        <span>Unlimited practice questions</span>
+                    </div>
+                    <div class="auth-feature-item">
+                        <span class="feature-icon"><i class="fas fa-robot"></i></span>
+                        <span>AI-powered performance insights</span>
+                    </div>
+                    <div class="auth-feature-item">
+                        <span class="feature-icon"><i class="fas fa-certificate"></i></span>
+                        <span>Earn skill badges & certificates</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Panel - Register Form -->
+        <div class="auth-right">
+            <div class="auth-card glass-panel">
+                <div class="auth-header">
+                    <h2>Create Account</h2>
+                    <p>Fill in your details to get started</p>
+                </div>
+
+                <!-- Progress Steps -->
+                <div class="step-indicator">
+                    <div class="step active" id="step-dot-1"><span>1</span></div>
+                    <div class="step-line"></div>
+                    <div class="step" id="step-dot-2"><span>2</span></div>
+                    <div class="step-line"></div>
+                    <div class="step" id="step-dot-3"><span>3</span></div>
+                </div>
+
+                <div id="auth-message" class="auth-msg hidden"></div>
+
+                <form id="registerForm" class="auth-form" novalidate>
+
+                    <!-- Step 1: Basic Info -->
+                    <div class="form-step active" id="form-step-1">
+                        <div class="form-group">
+                            <label for="regName">Full Name</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-user input-icon"></i>
+                                <input type="text" id="regName" placeholder="John Doe" autocomplete="name" required>
+                            </div>
+                            <span class="field-error" id="nameError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="regEmail">Email Address</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-envelope input-icon"></i>
+                                <input type="email" id="regEmail" placeholder="you@example.com" autocomplete="email" required>
+                            </div>
+                            <span class="field-error" id="regEmailError"></span>
+                        </div>
+                        <button type="button" class="btn-auth btn-primary" onclick="nextStep(1)">
+                            Next <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+
+                    <!-- Step 2: Password -->
+                    <div class="form-step" id="form-step-2">
+                        <div class="form-group">
+                            <label for="regPassword">Password</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-lock input-icon"></i>
+                                <input type="password" id="regPassword" placeholder="Min 8 characters" autocomplete="new-password" required>
+                                <button type="button" class="toggle-pass" onclick="togglePass('regPassword', this)" aria-label="Toggle password visibility">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="password-strength" id="strengthBar">
+                                <div class="strength-fill" id="strengthFill"></div>
+                            </div>
+                            <span class="strength-label" id="strengthLabel"></span>
+                            <span class="field-error" id="regPassError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="regConfirm">Confirm Password</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-lock input-icon"></i>
+                                <input type="password" id="regConfirm" placeholder="Repeat your password" autocomplete="new-password" required>
+                                <button type="button" class="toggle-pass" onclick="togglePass('regConfirm', this)" aria-label="Toggle confirm password visibility">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <span class="field-error" id="confirmError"></span>
+                        </div>
+                        <div class="step-buttons">
+                            <button type="button" class="btn-auth btn-secondary" onclick="prevStep(2)">
+                                <i class="fas fa-arrow-left"></i> Back
+                            </button>
+                            <button type="button" class="btn-auth btn-primary" onclick="nextStep(2)">
+                                Next <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Goal -->
+                    <div class="form-step" id="form-step-3">
+                        <div class="form-group">
+                            <label>I'm preparing for</label>
+                            <div class="goal-grid">
+                                <label class="goal-card" for="goal-campus">
+                                    <input type="radio" name="goal" id="goal-campus" value="campus" checked>
+                                    <div class="goal-content">
+                                        <i class="fas fa-graduation-cap"></i>
+                                        <span>Campus Placements</span>
+                                    </div>
+                                </label>
+                                <label class="goal-card" for="goal-product">
+                                    <input type="radio" name="goal" id="goal-product" value="product">
+                                    <div class="goal-content">
+                                        <i class="fas fa-building"></i>
+                                        <span>Product Companies</span>
+                                    </div>
+                                </label>
+                                <label class="goal-card" for="goal-service">
+                                    <input type="radio" name="goal" id="goal-service" value="service">
+                                    <div class="goal-content">
+                                        <i class="fas fa-briefcase"></i>
+                                        <span>Service Companies</span>
+                                    </div>
+                                </label>
+                                <label class="goal-card" for="goal-upskill">
+                                    <input type="radio" name="goal" id="goal-upskill" value="upskill">
+                                    <div class="goal-content">
+                                        <i class="fas fa-chart-bar"></i>
+                                        <span>Upskill / Switch</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        <label class="terms-check">
+                            <input type="checkbox" id="agreeTerms" required>
+                            <span>I agree to the <a href="#" class="switch-link">Terms of Service</a> and <a href="#" class="switch-link">Privacy Policy</a></span>
+                        </label>
+                        <span class="field-error" id="termsError"></span>
+                        <div class="step-buttons">
+                            <button type="button" class="btn-auth btn-secondary" onclick="prevStep(3)">
+                                <i class="fas fa-arrow-left"></i> Back
+                            </button>
+                            <button type="submit" class="btn-auth btn-primary" id="registerSubmitBtn">
+                                <span class="btn-label">Create Account</span>
+                                <i class="fas fa-rocket"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="auth-divider"><span>or sign up with</span></div>
+
+                <div class="social-auth">
+                    <button class="social-btn" onclick="socialLogin('google')">
+                        <i class="fab fa-google"></i> Google
+                    </button>
+                    <button class="social-btn" onclick="socialLogin('github')">
+                        <i class="fab fa-github"></i> GitHub
+                    </button>
+                </div>
+
+                <p class="auth-switch">
+                    Already have an account? <a href="login.html" class="switch-link">Sign in →</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+</body>
+
+</html>

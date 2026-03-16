@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NextGen Interview Prep | Master Your Placements</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-globes">
+        <div class="globe globe-1"></div>
+        <div class="globe globe-2"></div>
+        <div class="globe globe-3"></div>
+    </div>
+
+    <nav class="glass-nav">
+        <div class="logo">
+            <i class="fas fa-rocket"></i> LaunchPad
+        </div>
+        <ul class="nav-links">
+            <li><a href="#hero" class="active">Home</a></li>
+            <li><a href="#practice">Practice</a></li>
+            <li><a href="#dashboard">Dashboard</a></li>
+            <li><a href="#resources">Resources</a></li>
+        </ul>
+        <div class="auth-buttons" id="navAuthArea">
+            <a href="register.html" class="btn-glow-small" style="text-decoration:none;margin-right:8px;">Register</a>
+            <a href="login.html" class="btn-glow-small" style="text-decoration:none;">Login</a>
+        </div>
+        <div class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="hero-content" data-tilt>
+                <div class="badge">🚀 Ace Your Next Interview</div>
+                <h1> <span class="gradient-text">Interview Preparation Platform</span></h1>
+                <p>The ultimate AI-powered preparation platform for students. Master aptitude, coding, and HR interviews
+                    with our anti-gravity learning experience.</p>
+                <div class="hero-buttons">
+                    <button class="btn-primary glow-effect">Start Practicing <i class="fas fa-arrow-right"></i></button>
+                    <button class="btn-secondary glass-effect">View Dashboard</button>
+                </div>
+                <div class="stats-row">
+                    <div class="stat-item">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Questions</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">10k+</span>
+                        <span class="stat-label">Students</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">95%</span>
+                        <span class="stat-label">Success Rate</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="floating-card card-1 glass-panel">
+                    <i class="fas fa-code"></i>
+                    <span>Algorithms</span>
+                </div>
+                <div class="floating-card card-2 glass-panel">
+                    <i class="fas fa-brain"></i>
+                    <span>Aptitude</span>
+                </div>
+                <div class="floating-card card-3 glass-panel">
+                    <i class="fas fa-user-tie"></i>
+                    <span>HR Round</span>
+                </div>
+                <div class="code-block glass-panel">
+                    <pre><code>function success() {
+  prepare();
+  practice();
+  return "Offer Letter";
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Daily Challenge -->
+        <section id="daily-challenge" class="section-padding">
+            <div class="glass-panel challenge-container">
+                <div class="challenge-header">
+                    <h2><i class="fas fa-fire"></i> Daily Challenge</h2>
+                    <div class="countdown">Ends in: <span id="timer">12:45:30</span></div>
+                </div>
+                <div class="challenge-content">
+                    <h3 id="daily-question-title">Loading Challenge...</h3>
+                    <p id="daily-question-desc">Get ready to solve today's toughest problem.</p>
+                    <button class="btn-primary btn-sm" onclick="startDailyChallenge()">Solve Now</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Practice Section -->
+        <section id="practice" class="section-padding">
+            <div class="section-header">
+                <h2>Practice Arena</h2>
+                <p>Choose your battleground and level up your skills</p>
+            </div>
+
+            <div class="category-grid">
+                <!-- MCQ Card -->
+                <div class="practice-card glass-panel hover-lift">
+                    <div class="card-icon color-1"><i class="fas fa-list-check"></i></div>
+                    <h3>MCQ Aptitude</h3>
+                    <p>Quantitative, logical reasoning, and verbal ability questions.</p>
+                    <div class="tags">
+                        <span class="tag">Math</span>
+                        <span class="tag">Logic</span>
+                    </div>
+                    <button class="btn-text" onclick="loadSection('mcq')">Start Quiz <i
+                            class="fas fa-chevron-right"></i></button>
+                </div>
+
+                <!-- Coding Card -->
+                <div class="practice-card glass-panel hover-lift">
+                    <div class="card-icon color-2"><i class="fas fa-terminal"></i></div>
+                    <h3>Coding Lab</h3>
+                    <p>Data structures and algorithms problems from top companies.</p>
+                    <div class="tags">
+                        <span class="tag">Arrays</span>
+                        <span class="tag">Trees</span>
+                        <span class="tag">DP</span>
+                    </div>
+                    <button class="btn-text" onclick="loadSection('coding')">Start Coding <i
+                            class="fas fa-chevron-right"></i></button>
+                </div>
+
+                <!-- HR Card -->
+                <div class="practice-card glass-panel hover-lift">
+                    <div class="card-icon color-3"><i class="fas fa-users"></i></div>
+                    <h3>HR Interview</h3>
+                    <p>Behavioral questions and best answering strategies.</p>
+                    <div class="tags">
+                        <span class="tag">Behavioral</span>
+                        <span class="tag">Soft Skills</span>
+                    </div>
+                    <button class="btn-text" onclick="loadSection('hr')">Practice HR <i
+                            class="fas fa-chevron-right"></i></button>
+                </div>
+
+                <!-- Mock Test Card -->
+                <div class="practice-card glass-panel hover-lift special-card">
+                    <div class="card-icon color-4"><i class="fas fa-stopwatch"></i></div>
+                    <h3>Full Mock Test</h3>
+                    <p>Simulate a real interview environment with timed tests.</p>
+                    <button class="btn-primary width-100" onclick="startMockTest()">Take Mock Test</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Content Area (Hidden by default, shown when section selected) -->
+        <section id="dynamic-content" class="modal-overlay hidden">
+            <div class="glass-panel modal-content">
+                <button class="close-btn" onclick="closeModal()"><i class="fas fa-times"></i></button>
+                <div id="content-loader"></div>
+            </div>
+        </section>
+
+        <!-- Dashboard Preview -->
+        <section id="dashboard" class="section-padding">
+            <div class="dashboard-preview glass-panel">
+                <div class="dash-sidebar">
+                    <div class="user-profile">
+                        <div class="avatar" id="dashAvatar"><i class="fas fa-user"></i></div>
+                        <div class="user-info">
+                            <h4 id="dashUserName">Guest User</h4>
+                            <span id="dashUserLevel">Level 1 Scholar</span>
+                        </div>
+                    </div>
+                    <div class="stats-mini">
+                        <div class="stat-row">
+                            <span>XP</span>
+                            <div class="progress-bar">
+                                <div class="fill" style="width: 45%"></div>
+                            </div>
+                        </div>
+                        <div class="stat-row">
+                            <span>Streak</span>
+                            <span>🔥 3 Days</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="dash-main">
+                    <h3>Your Progress</h3>
+                    <div class="chart-area placeholder-chart">
+                        <!-- Chart generated by JS/CSS -->
+                        <div class="bar" style="height: 60%"></div>
+                        <div class="bar" style="height: 80%"></div>
+                        <div class="bar" style="height: 40%"></div>
+                        <div class="bar" style="height: 90%"></div>
+                        <div class="bar" style="height: 70%"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="glass-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>LaunchPad</h3>
+                <p>Empowering students to achieve their career goals.</p>
+            </div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2026 LaunchPad. Built for Students.
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="auth.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
